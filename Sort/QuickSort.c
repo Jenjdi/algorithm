@@ -6,7 +6,15 @@ void quicksort(int* arr, int begin, int end)
 		return;
 	}
 	int key = partsort2(arr,begin,end);
-	/*while (left < right)
+	quicksort(arr, begin, key - 1);
+	quicksort(arr, key + 1, end);
+}
+int partsort(int* arr, int begin, int end)
+{
+	int left = begin;
+	int right = end;
+	int key = begin;
+	while (left < right)
 	{
 		while (left<right&&arr[right]>=arr[key])
 		{
@@ -18,11 +26,7 @@ void quicksort(int* arr, int begin, int end)
 		}
 		swap(&arr[left], &arr[right]);
 	}
-	swap(&arr[right], &arr[key]);*/
-
-	
-	quicksort(arr, begin, key - 1);
-	quicksort(arr, key + 1, end);
+	swap(&arr[right], &arr[key]);
 }
 int partsort1(int* arr, int begin, int end)
 {
