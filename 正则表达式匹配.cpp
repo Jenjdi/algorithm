@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <climits>
-using namespace std;
 // 10. 正则表达式匹配
 // https://leetcode.cn/problems/regular-expression-matching/
 // 给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 '.' 和 '*' 的正则表达式匹配。
@@ -32,6 +26,13 @@ using namespace std;
 // p = ".*"
 // 输出: true
 // 解释: ".*" 表示可匹配零个或多个('*')的任意字符('.')。
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <climits>
+using namespace std;
+
 class Solution {
     public:
         bool isMatch(string s, string p) {

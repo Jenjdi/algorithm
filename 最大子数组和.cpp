@@ -1,8 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <climits>
-using namespace std;
 // 53. 最大子序和
 // https://leetcode.cn/problems/maximum-subarray/
 // 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
@@ -20,6 +15,12 @@ using namespace std;
 // 提示：
 // 1 <= nums.length <= 3 * 104
 // -105 <= nums[i] <= 105
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <climits>
+using namespace std;
+
 class Solution {
     public:
         int maxSubArray(vector<int>& nums) {
