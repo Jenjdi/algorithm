@@ -15,6 +15,8 @@ using namespace std;
 class Solution {
 public:
     int minPathSum(vector<vector<int>>& grid) {
+        // 修复：先处理空输入，避免下标越界。
+        if (grid.empty() || grid[0].empty()) return 0;
         int m=grid.size();
         int n=grid[0].size();
         vector<vector<int>> dp(m+1,vector<int>(n+1,INT_MAX));

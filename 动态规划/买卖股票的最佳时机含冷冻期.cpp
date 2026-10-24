@@ -8,7 +8,7 @@
 //注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
 //示例：
 //输入: prices = [1,2,3,0,2]
-//输出: 3 
+//输出: 3
 //解释: 对应的交易状态为: [买入, 卖出, 冷冻期, 买入, 卖出]
 #include <iostream>
 #include <vector>
@@ -18,6 +18,8 @@ using namespace std;
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
+        // 修复：没有交易日时利润为零。
+        if (prices.empty()) return 0;
         int m=prices.size();
         vector<vector<int>> dp(m+1,vector<int>(3));
         //0：买入  1：冷冻期  2：可交易

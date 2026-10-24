@@ -17,16 +17,15 @@ using namespace std;
 int minCostClimbingStairs(vector<int> &cost)
 {
     // write code here
-    int n = cost.size();
-    if (n <= 2)
+    // 使用滚动状态；允许从第 1 级开始，长度不足 2 时无需支付费用。
+    int previousCost = 0;
+    int currentCost = 0;
+    for (size_t step = 2; step <= cost.size(); ++step)
     {
-        return min(cost[0], cost[1]);
+        const int nextCost = min(currentCost + cost[step - 1],
+                                 previousCost + cost[step - 2]);
+        previousCost = currentCost;
+        currentCost = nextCost;
     }
-    vector<int> dp(n);
-    dp[0] = dp[1] = 0;
-    for (int i = 2; i < n; i++)
-    {
-        dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
-    }
-    return min(dp[n - 1] + cost[n - 1], dp[n - 2] + cost[n - 2]);
+    return currentCost;
 }

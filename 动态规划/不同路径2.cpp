@@ -11,6 +11,8 @@ using namespace std;
 class Solution {
 public:
     int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
+        // 修复：先处理空输入，避免下标越界。
+        if (obstacleGrid.empty() || obstacleGrid[0].empty()) return 0;
         int m=obstacleGrid.size();
         int n=obstacleGrid[0].size();
         vector<vector<int>> dp(m+1,vector<int>(n+1));

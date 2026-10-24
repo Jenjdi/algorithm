@@ -23,6 +23,8 @@ using namespace std;
 class Solution {
 public:
     int calculateMinimumHP(vector<vector<int>>& dungeon) {
+        // 修复：先处理空输入，避免下标越界。
+        if (dungeon.empty() || dungeon[0].empty()) return 1;
         int m=dungeon.size();
         int n=dungeon[0].size();
         vector<vector<int>> dp(m+1,vector<int>(n+1,INT_MAX));

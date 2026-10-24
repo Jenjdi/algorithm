@@ -17,6 +17,8 @@ using namespace std;
 class Solution {
 public:
     int jewelleryValue(vector<vector<int>>& frame) {
+        // 修复：先处理空输入，避免下标越界。
+        if (frame.empty() || frame[0].empty()) return 0;
         int m=frame.size();
         int n=frame[0].size();
         vector<vector<int>> dp(m+1,vector<int>(n+1));

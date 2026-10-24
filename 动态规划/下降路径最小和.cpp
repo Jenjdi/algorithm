@@ -13,6 +13,8 @@ using namespace std;
 class Solution {
 public:
     int minFallingPathSum(vector<vector<int>>& matrix) {
+        // 修复：先处理空输入，避免下标越界。
+        if (matrix.empty() || matrix[0].empty()) return 0;
         int m=matrix.size();
         vector<vector<int>> dp(m+1,vector<int>(m+2));
         for(int i=1;i<=m;i++)

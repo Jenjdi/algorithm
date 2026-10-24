@@ -15,8 +15,10 @@ using namespace std;
 // 输出："9534330"
 class Solution {
     public:
-    
+
         string largestNumber(vector<int>& nums) {
+            // 修复：空数组没有首项，直接返回空结果。
+            if (nums.empty()) return "";
             vector<string> str;
             for(auto e:nums)
             {

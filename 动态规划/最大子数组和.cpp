@@ -24,7 +24,9 @@ using namespace std;
 class Solution {
     public:
         int maxSubArray(vector<int>& nums) {
-            int n=nums.size();
+            // 修复：先处理空输入，避免下标越界。
+        if (nums.empty()) return 0;
+        int n=nums.size();
             vector<int> dp(n+1);
             int ret=INT_MIN;
             for(int i=1;i<=n;i++)

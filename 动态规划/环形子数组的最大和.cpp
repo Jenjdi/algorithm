@@ -8,7 +8,7 @@ https://leetcode.cn/problems/maximum-sum-circular-subarray/description/
 子数组 最多只能包含固定缓冲区 nums 中的每个元素一次。
 形式上，对于子数组 nums[i], nums[i + 1], ..., nums[j] ，不存在 i <= k1, k2 <= j 其中 k1 % n == k2 % n 。
 
- 
+
 
 示例 1：
 
@@ -24,6 +24,8 @@ using namespace std;
 class Solution {
 public:
     int maxSubarraySumCircular(vector<int>& nums) {
+        // 修复：先处理空输入，避免下标越界。
+        if (nums.empty()) return 0;
         int n=nums.size();
         vector<int> f(n+1);
         vector<int> g(n+1);

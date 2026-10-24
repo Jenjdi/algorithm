@@ -27,22 +27,20 @@ using namespace std;
 class Solution {
     public:
         int wiggleMaxLength(vector<int>& nums) {
-            int ret=1;
-            int l=0;
-            int r=0;
-            for(int i=0;i<nums.size()-1;i++)
+            // 修复：比较大小判断趋势，避免差值及差值乘积发生整数溢出。
+            if (nums.empty()) return 0;
+            int wiggleLength = 1;
+            int previousDirection = 0;
+            for (size_t index = 1; index < nums.size(); ++index)
             {
-                r=nums[i+1]-nums[i];
-                if(r==0)
+                const int direction = (nums[index] > nums[index - 1]) -
+                                      (nums[index] < nums[index - 1]);
+                if (direction != 0 && direction != previousDirection)
                 {
-                    continue;
+                    ++wiggleLength;
+                    previousDirection = direction;
                 }
-                if(l*r<=0)
-                {
-                    ret++;
-                }
-                l=r;
             }
-            return ret;
+            return wiggleLength;
         }
     };

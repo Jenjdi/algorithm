@@ -17,6 +17,8 @@ using namespace std;
 class Solution {
 public:
     int rob(vector<int>& nums) {
+        // 修复：先处理空输入，避免下标越界。
+        if (nums.empty()) return 0;
         int n=nums.size();
         return max(rob1(nums,1,n-1),rob1(nums,2,n-2)+nums[0]);
     }

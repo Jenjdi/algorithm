@@ -12,6 +12,11 @@ using namespace std;
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
-        
+        // 修复：双指针稳定压缩非零元素，再将剩余位置补零。
+        size_t writeIndex = 0;
+        for (int value : nums) {
+            if (value != 0) nums[writeIndex++] = value;
+        }
+        while (writeIndex < nums.size()) nums[writeIndex++] = 0;
     }
 };

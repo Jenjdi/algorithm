@@ -17,6 +17,8 @@ using namespace std;
 class Solution {
 public:
     int uniquePaths(int m, int n) {
+        // 修复：先处理空输入，避免下标越界。
+        if (m <= 0 || n <= 0) return 0;
         vector<vector<int>> dp(m,vector<int>(n));
         for(int i=0;i<n;i++)
         {

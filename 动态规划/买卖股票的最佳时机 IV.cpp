@@ -14,6 +14,8 @@ using namespace std;
 class Solution {
 public:
     int maxProfit(int k, vector<int>& prices) {
+        // 修复：没有交易日时利润为零。
+        if (prices.empty()) return 0;
         int m=prices.size();
         vector<vector<int>> f(m+1,vector<int>(k+1,-0x3f3f3f3f));//当天处于买状态
         vector<vector<int>> g(m+1,vector<int>(k+1,-0x3f3f3f3f));//当天处于卖状态
